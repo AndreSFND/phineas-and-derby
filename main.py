@@ -4,14 +4,14 @@ import OpenGL.GL.shaders
 import numpy as np
 
 from utils import create_window, create_program, upload_data, draw_object
-from objects import create_triangle
+from objects import create_triangle, create_nose
 
 objects = list()
 current_object = 0
 
 def create_objects(program):
     objects.append( create_triangle(program, +0.0, +0.0, 0.0, 0.0, 1.0, GL_TRIANGLE_FAN) )
-    objects.append( create_triangle(program, -0.5, +0.0, 0.0, 1.0, 0.0, GL_TRIANGLE_FAN) )
+    objects.append( create_nose(program, -0.5, +0.0, 0.81, 0.49, 0.39, GL_TRIANGLE_FAN) )
 
 def move_object(x_offset, y_offset):
     global objects

@@ -10,8 +10,8 @@ objects = list()
 current_object = 0
 
 def create_objects(program):
-    objects.append( create_triangle(program, +0.0, +0.0, 0.0, 0.0, 1.0, GL_TRIANGLE_FAN) )
-    objects.append( create_nose(program, -0.5, +0.0, 0.81, 0.49, 0.39, GL_TRIANGLE_FAN) )
+    # objects.append( create_triangle(program, +0.0, +0.0, 0.0, 0.0, 1.0, GL_TRIANGLE_FAN) )
+    objects.append( create_nose(program, -0.5, +0.0, 0.81, 0.49, 0.39, GL_TRIANGLE_STRIP) )
 
 def move_object(x_offset, y_offset):
     global objects
@@ -51,6 +51,9 @@ def main():
     while not glfw.window_should_close(window):
 
         glfw.poll_events() 
+        
+        # Para debugar, descomente o modo de poligonos:
+        # glPolygonMode(GL_FRONT_AND_BACK,GL_LINE)
         
         glClear(GL_COLOR_BUFFER_BIT) 
         glClearColor(1.0, 1.0, 1.0, 1.0)

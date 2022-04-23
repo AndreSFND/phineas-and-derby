@@ -1,0 +1,18 @@
+skin = fbb898
+skin outline = b0745b
+
+shirt orange = f77e37
+shirt white = faefd6
+shirt outline = 616a68
+
+hair = de2f18
+hair outline = 6e2d41
+
+mouth = 640406
+tongue = d85d67
+
+iris = 17194d
+eye outline = 4c3c3a
+eye = f7f9fb
+
+nose = d17f65

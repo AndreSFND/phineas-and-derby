@@ -107,8 +107,8 @@ def draw_object(obj, program, loc_color, start_index):
     loc = glGetUniformLocation(program, "mat_transformation")
     glUniformMatrix4fv(loc, 1, GL_TRUE, mat_translation)
 
-    # Desenhando arestas
-    glDrawArrays(obj[7], start_index, len(obj[0]))
-
     # Modificando a cor do objeto
     glUniform4f(loc_color, obj[4], obj[5], obj[6], 1.0)
+
+    # Desenhando arestas
+    glDrawArrays(obj[7], start_index, len(obj[0]))

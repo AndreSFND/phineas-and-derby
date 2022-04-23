@@ -91,7 +91,7 @@ def upload_data(program, vertices):
 
     glVertexAttribPointer(loc, 2, GL_FLOAT, False, stride, offset)
 
-def draw_object(obj, program, loc_color):
+def draw_object(obj, program, loc_color, start_index):
 
     # Definindo a matriz de translacao
     mat_translation = np.array([    1.0, 0.0, 0.0, obj[1], 
@@ -103,7 +103,7 @@ def draw_object(obj, program, loc_color):
     glUniformMatrix4fv(loc, 1, GL_TRUE, mat_translation)
 
     # Desenhando arestas
-    glDrawArrays(GL_TRIANGLES, 0, len(obj[0]))
+    glDrawArrays(obj[6], start_index, len(obj[0]))
 
     # Modificando a cor do objeto
     glUniform4f(loc_color, obj[3], obj[4], obj[5], 1.0)

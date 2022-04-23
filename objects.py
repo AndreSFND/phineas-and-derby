@@ -1,6 +1,7 @@
 from OpenGL.GL import *
 import OpenGL.GL.shaders
 import numpy as np
+import math
 
 def create_triangle(program, x, y, rotation, R, G, B, mode):
     

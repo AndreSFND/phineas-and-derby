@@ -10,8 +10,9 @@ objects = list()
 current_object = 0
 
 def create_objects(program):
-    objects.append( create_triangle(program, +0.0, +0.0, 0.0, 0.0, 1.0, GL_TRIANGLE_FAN) )
-    objects.append( create_triangle(program, -0.5, +0.0, 0.0, 1.0, 0.0, GL_TRIANGLE_FAN) )
+    # program, x, y, rotation, R, G, B, render_mode
+    objects.append( create_triangle(program, +0.0, +0.0, +0.0, 0.0, 0.0, 1.0, GL_TRIANGLE_FAN) )
+    objects.append( create_triangle(program, -0.5, +0.0, +0.0, 0.0, 1.0, 0.0, GL_TRIANGLE_FAN) )
 
 def move_object(x_offset, y_offset):
     global objects
@@ -19,13 +20,23 @@ def move_object(x_offset, y_offset):
     objects[current_object][1] += x_offset
     objects[current_object][2] += y_offset
 
+def rotate_object(offset):
+    global objects
+
+    objects[current_object][3] += offset
+
 def key_event(window,key,scancode,action,mods):
     global objects, current_object
 
+    # Translates object
     if key == 265: move_object(+0.00, +0.01) #cima
     if key == 264: move_object(+0.00, -0.01) #baixo
     if key == 263: move_object(-0.01, +0.00) #esquerda
     if key == 262: move_object(+0.01, +0.00) #direita
+    # Rotates object
+    if key == 65:  rotate_object(-2) #esquerda
+    if key == 68:  rotate_object(+2) #direita
+    # Switch between objects
     if key == 81 and action == 1: current_object = (current_object+1) % len(objects)
     if key == 69 and action == 1: current_object = (current_object-1) % len(objects)
 

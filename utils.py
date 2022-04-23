@@ -2,6 +2,7 @@ import glfw
 from OpenGL.GL import *
 import OpenGL.GL.shaders
 import numpy as np
+import math
 
 def create_window():
     # Inicializando janela
@@ -93,9 +94,13 @@ def upload_data(program, vertices):
 
 def draw_object(obj, program, loc_color, start_index):
 
+    rad = math.radians(obj[3]) 
+    c = math.cos(rad)
+    s = math.sin(rad)
+
     # Definindo a matriz de translacao
-    mat_translation = np.array([    1.0, 0.0, 0.0, obj[1], 
-                                    0.0, 1.0, 0.0, obj[2], 
+    mat_translation = np.array([    c, -s, 0.0, obj[1], 
+                                    s, c, 0.0, obj[2], 
                                     0.0, 0.0, 1.0, 0.0, 
                                     0.0, 0.0, 0.0, 1.0], np.float32)
     
@@ -103,7 +108,7 @@ def draw_object(obj, program, loc_color, start_index):
     glUniformMatrix4fv(loc, 1, GL_TRUE, mat_translation)
 
     # Desenhando arestas
-    glDrawArrays(obj[6], start_index, len(obj[0]))
+    glDrawArrays(obj[7], start_index, len(obj[0]))
 
     # Modificando a cor do objeto
-    glUniform4f(loc_color, obj[3], obj[4], obj[5], 1.0)
+    glUniform4f(loc_color, obj[4], obj[5], obj[6], 1.0)

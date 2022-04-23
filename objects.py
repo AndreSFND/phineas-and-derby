@@ -2,7 +2,7 @@ from OpenGL.GL import *
 import OpenGL.GL.shaders
 import numpy as np
 
-def create_triangle(program, x, y, R, G, B, mode):
+def create_triangle(program, x, y, rotation, R, G, B, mode):
     
     # Funcao para calcular os vertices aqui
 
@@ -13,4 +13,4 @@ def create_triangle(program, x, y, R, G, B, mode):
         (+0.2, +0.0),
     ]
 
-    return [vertices, x, y, R, G, B, mode]
+    return [vertices, x, y, rotation, R, G, B, mode]

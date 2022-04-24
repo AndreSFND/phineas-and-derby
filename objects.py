@@ -60,3 +60,17 @@ def create_mouth(program, x, y, rotation, R, G, B, mode):
             vertices.append((x,y))
 
     return [vertices, x, y, rotation, R, G, B, mode]
+
+def create_head(program, x, y, rotation, R, G, B, mode):
+    
+    # Funcao para calcular os vertices aqui
+    
+    # Preenchendo as coordenadas de cada vértice
+    vertices = [
+        (+0.0, +0.65),
+        (+0.3, +0.0),
+        (-0.3, +0.0),
+        (+0.0, -0.45),
+    ]
+
+    return [vertices, x, y, rotation, R, G, B, mode]

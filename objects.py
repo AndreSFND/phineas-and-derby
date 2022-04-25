@@ -36,3 +36,42 @@ def create_nose(program, x, y, rotation, R, G, B, mode):
     ]
 
     return [vertices, x, y, rotation, R, G, B, mode]
+
+def create_mouth(program, x, y, rotation, R, G, B, mode):
+    
+    # Funcao para calcular os vertices aqui
+
+    num_vertices = 32 # define a "qualidade" do circulo
+    pi = 3.14
+    counter = 0
+    radius = 0.5
+    vertices = []
+
+    angle = 0.0
+    for counter in range(num_vertices):
+        angle += 2*pi/num_vertices 
+        x = math.cos(angle)*radius
+        y = math.sin(angle)*radius
+        # x = np.float64(round(x, 3))
+        # y = np.float64(round(y, 3))
+        
+        # Para pegar somente o semi circulo inferior, ignore os primeiros 15 pontos
+        if counter > 14:
+            vertices.append((x,y))
+
+    return [vertices, x, y, rotation, R, G, B, mode]
+
+def create_head(program, x, y, rotation, R, G, B, mode):
+    
+    # Funcao para calcular os vertices aqui
+    print(R, G, B)
+    
+    # Preenchendo as coordenadas de cada vértice
+    vertices = [
+        (+0.0, +0.65),
+        (+0.3, +0.0),
+        (-0.3, +0.0),
+        (+0.0, -0.45),
+    ]
+
+    return [vertices, x, y, rotation, R, G, B, mode]

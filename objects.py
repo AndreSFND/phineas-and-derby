@@ -75,3 +75,24 @@ def create_head(program, x, y, rotation, R, G, B, mode):
     ]
 
     return [vertices, x, y, rotation, R, G, B, mode]
+
+def create_ellipse(program, x, y, rotation, radius, R, G, B, mode, eccentricity=1):
+    
+    num_vertices = 32 # define a "qualidade" do circulo
+    pi = 3.14
+    counter = 0
+    vertices = []
+    offset_x = x
+    offset_y = y
+
+    angle = 0.0
+    for counter in range(num_vertices):
+        angle += 2*pi/num_vertices 
+        x = math.cos(angle)*radius + offset_x
+        y = math.sin(angle)*radius*eccentricity + offset_y
+        # x = np.float64(round(x, 3))
+        # y = np.float64(round(y, 3))
+
+        vertices.append((x,y))
+
+    return [vertices, x, y, rotation, R, G, B, mode]

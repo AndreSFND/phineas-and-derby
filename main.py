@@ -14,7 +14,7 @@ def create_objects(program):
     objects.append( create_triangle(program, +0.0, +0.0, 0.0, 0.0, 0.0, 1.0, GL_TRIANGLE_FAN) )
     objects.append( create_nose(program, -0.5, +0.0, 0.0, 0.81, 0.49, 0.39, GL_TRIANGLE_STRIP) )
     objects.append( create_mouth(program, -0.5, +0.0, 0.0, 0.39, 0.01, 0.02, GL_TRIANGLE_FAN) )
-    objects.append( create_head(program, +0.0, +0.0, 0.0, 0.252, 0.182, 0.149, GL_TRIANGLE_STRIP) )
+    objects.append( create_head(program, +0.0, +0.0, 0.0, 0.98, 0.72, 0.60, GL_TRIANGLE_STRIP) )
 
 def move_object(x_offset, y_offset):
     global objects

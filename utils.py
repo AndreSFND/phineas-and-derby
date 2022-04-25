@@ -99,14 +99,14 @@ def draw_object(obj, program, loc_color, start_index):
     s = math.sin(rad)
 
     # Definindo a matriz de translacao
-    mat_translation = np.array([    c, -s, 0.0, obj[1], 
+    mat_translation = np.array([    c, -s, 0.0, obj[1],
                                     s, c, 0.0, obj[2], 
                                     0.0, 0.0, 1.0, 0.0, 
                                     0.0, 0.0, 0.0, 1.0], np.float32)
     
     loc = glGetUniformLocation(program, "mat_transformation")
     glUniformMatrix4fv(loc, 1, GL_TRUE, mat_translation)
-
+    
     # Modificando a cor do objeto
     glUniform4f(loc_color, obj[4], obj[5], obj[6], 1.0)
 

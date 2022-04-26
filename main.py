@@ -35,11 +35,11 @@ def create_objects(program):
     fixed_objects.append( create_ear_line(program, x=-0.32, y=+0.0, scale_x=1.05, scale_y=1.05, R=0.81, G=0.49, B=0.39, mode=GL_LINE_STRIP) )
 
     # Eyes contour
-    fixed_objects.append( create_ellipse(program, x=-0.14, y=+0.089, rotation=-17.0, radius=0.1, eccentricity=1.4, R=0.0, G=0.0, B=0.0, mode=GL_TRIANGLE_FAN) )
-    fixed_objects.append( create_ellipse(program, x=+0.05, y=+0.1, rotation=20.0, radius=0.1, eccentricity=1.4, R=0.0, G=0.0, B=0.0, mode=GL_TRIANGLE_FAN) )
+    objects.append( create_ellipse(program, x=-0.14, y=+0.089, rotation=-17.0, radius=0.1, eccentricity=1.4, R=0.0, G=0.0, B=0.0, mode=GL_TRIANGLE_FAN) )
+    objects.append( create_ellipse(program, x=+0.05, y=+0.1, rotation=20.0, radius=0.1, eccentricity=1.4, R=0.0, G=0.0, B=0.0, mode=GL_TRIANGLE_FAN) )
     
     # Eyes balls
-    fixed_objects.append( create_ellipse(program, x=-0.14, y=+0.089, rotation=-17.0, radius=0.097, eccentricity=1.4, R=1.0, G=1.0, B=1.0, mode=GL_TRIANGLE_FAN) )
+    objects.append( create_ellipse(program, x=-0.14, y=+0.089, rotation=-17.0, radius=0.097, eccentricity=1.4, R=1.0, G=1.0, B=1.0, mode=GL_TRIANGLE_FAN) )
     objects.append( create_ellipse(program, x=+0.05, y=+0.1, rotation=20.0, radius=0.097, eccentricity=1.4, R=1.0, G=1.0, B=1.0, mode=GL_TRIANGLE_FAN) )
     
     # Eyes Iris
@@ -61,7 +61,7 @@ def scale_object(scale):
 def rotate_object(offset):
     global objects
 
-    objects[current_object][4] += offset
+    objects[current_object][5] += offset
 
 def key_event(window,key,scancode,action,mods):
     global objects, current_object

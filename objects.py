@@ -3,7 +3,7 @@ import OpenGL.GL.shaders
 import numpy as np
 import math
 
-def create_triangle(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
+def create_triangle(program=None, x=0.0, y=0.0, scale_x=1.0, scale_y= 1.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
     
     # Funcao para calcular os vertices aqui
 
@@ -14,9 +14,9 @@ def create_triangle(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, 
         (+0.0, +0.14),
     ]
 
-    return [vertices, x, y, scale, rotation, R, G, B, mode]
+    return [vertices, x, y, scale_x, scale_y, rotation, R, G, B, mode]
 
-def create_nose(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
+def create_nose(program=None, x=0.0, y=0.0, scale_x=1.0, scale_y= 1.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
     
     # Funcao para calcular os vertices aqui
     
@@ -35,9 +35,9 @@ def create_nose(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0.
         (+1.05, +0.0),
     ]
 
-    return [vertices, x, y, scale, rotation, R, G, B, mode]
+    return [vertices, x, y, scale_x, scale_y, rotation, R, G, B, mode]
 
-def create_mouth(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
+def create_mouth(program=None, x=0.0, y=0.0, scale_x=1.0, scale_y= 1.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
     
     # Funcao para calcular os vertices aqui
 
@@ -59,9 +59,9 @@ def create_mouth(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0
         if counter > 14:
             vertices.append((vertice_x,vertice_y))
 
-    return [vertices, x, y, scale, rotation, R, G, B, mode]
+    return [vertices, x, y, scale_x, scale_y, rotation, R, G, B, mode]
 
-def create_head(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
+def create_head(program=None, x=0.0, y=0.0, scale_x=1.0, scale_y= 1.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
     
     # Funcao para calcular os vertices aqui
     
@@ -73,9 +73,9 @@ def create_head(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0.
         (+0.0, -0.45),
     ]
 
-    return [vertices, x, y, scale, rotation, R, G, B, mode]
+    return [vertices, x, y, scale_x, scale_y, rotation, R, G, B, mode]
 
-def create_hair(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
+def create_hair(program=None, x=0.0, y=0.0, scale_x=1.0, scale_y= 1.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
     
     # Funcao para calcular os vertices aqui
     
@@ -101,9 +101,9 @@ def create_hair(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0.
         (0.225, -0.250),
     ]
 
-    return [vertices, x, y, scale, rotation, R, G, B, mode]
+    return [vertices, x, y, scale_x, scale_y, rotation, R, G, B, mode]
 
-def create_hair_outline(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
+def create_hair_outline(program=None, x=0.0, y=0.0, scale_x=1.0, scale_y= 1.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
     
     # Funcao para calcular os vertices aqui
     
@@ -127,9 +127,9 @@ def create_hair_outline(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0
         (0.170, -0.243),
     ]
 
-    return [vertices, x, y, scale, rotation, R, G, B, mode]
+    return [vertices, x, y, scale_x, scale_y, rotation, R, G, B, mode]
 
-def create_ellipse(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, radius=1.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP, eccentricity=1):
+def create_ellipse(program=None, x=0.0, y=0.0, scale_x=1.0, scale_y= 1.0, rotation=0.0, radius=1.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP, eccentricity=1):
     
     num_vertices = 32 # define a "qualidade" do circulo
     pi = 3.14
@@ -148,9 +148,9 @@ def create_ellipse(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, radius=1
 
         vertices.append((x,y))
 
-    return [vertices, x, y, scale, rotation, R, G, B, mode]
+    return [vertices, x, y, scale_x, scale_y, rotation, R, G, B, mode]
 
-def create_ear(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
+def create_ear(program=None, x=0.0, y=0.0, scale_x=1.0, scale_y= 1.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
     
     num_vertices = 32 # define a "qualidade" do circulo
     pi = 3.14
@@ -166,9 +166,9 @@ def create_ear(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0.1
         
         vertices.append((vertice_x,vertice_y))
 
-    return [vertices, x, y, scale, rotation, R, G, B, mode]
+    return [vertices, x, y, scale_x, scale_y, rotation, R, G, B, mode]
 
-def create_ear_line(program=None, side='A', x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
+def create_ear_line(program=None, x=0.0, y=0.0, scale_x=1.0, scale_y= 1.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
     
     # Funcao para calcular os vertices aqui
     
@@ -183,15 +183,4 @@ def create_ear_line(program=None, side='A', x=0.0, y=0.0, scale=0.0, rotation=0.
         (+0.032, +0.03),
     ]
 
-    if side == 'B':
-        vertices = [
-            (-0.033, -0.03),
-            (-0.01, -0.035),
-            (+0.01, -0.02),
-            (-0.00, +0.00),
-            (+0.011, +0.019),
-            (-0.01, +0.042),
-            (-0.032, +0.03),
-        ]
-
-    return [vertices, x, y, scale, rotation, R, G, B, mode]
+    return [vertices, x, y, scale_x, scale_y, rotation, R, G, B, mode]

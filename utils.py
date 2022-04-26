@@ -92,23 +92,45 @@ def upload_data(program, vertices):
 
     glVertexAttribPointer(loc, 2, GL_FLOAT, False, stride, offset)
 
+def multiplica_matriz(a,b):
+    m_a = a.reshape(4,4)
+    m_b = b.reshape(4,4)
+    m_c = np.dot(m_a,m_b)
+    c = m_c.reshape(1,16)
+    return c
+
 def draw_object(obj, program, loc_color, start_index):
 
-    rad = math.radians(obj[4]) 
+    rad = math.radians(obj[5]) 
     c = math.cos(rad)
     s = math.sin(rad)
 
     # Definindo a matriz de translacao
-    mat_translation = np.array([    c+obj[3],   -s,         0.0, obj[1],
-                                    s,          c+obj[3],   0.0, obj[2], 
-                                    0.0,        0.0,        1.0, 0.0, 
-                                    0.0,        0.0,        0.0, 1.0], np.float32)
+    mat_translation = np.array([    1.0, 0.0, 0.0, obj[1],
+                                    0.0, 1.0, 0.0, obj[2],
+                                    0.0, 0.0, 1.0, 0.0,
+                                    0.0, 0.0, 0.0, 1.0,], np.float32)
+
+    # Definindo a matriz de escala
+    mat_scale       = np.array([    obj[3], 0.0, 0.0, 0.0,
+                                    0.0, obj[4], 0.0, 0.0,
+                                    0.0, 0.0, 1.0, 0.0,
+                                    0.0, 0.0, 0.0, 1.0,], np.float32)
+
+     # Definindo a matriz de rotacao
+    mat_rotation    = np.array([    c,   -s,  0.0, 0.0,
+                                    s,   c,   0.0, 0.0,
+                                    0.0, 0.0, 1.0, 0.0,
+                                    0.0, 0.0, 0.0, 1.0,], np.float32)
     
+    mat_transformation = multiplica_matriz(mat_translation,mat_scale)
+    mat_transformation = multiplica_matriz(mat_rotation,mat_transformation)
+
     loc = glGetUniformLocation(program, "mat_transformation")
-    glUniformMatrix4fv(loc, 1, GL_TRUE, mat_translation)
+    glUniformMatrix4fv(loc, 1, GL_TRUE, mat_transformation)
     
     # Modificando a cor do objeto
-    glUniform4f(loc_color, obj[5], obj[6], obj[7], 1.0)
+    glUniform4f(loc_color, obj[6], obj[7], obj[8], 1.0)
 
     # Desenhando arestas
-    glDrawArrays(obj[8], start_index, len(obj[0]))
+    glDrawArrays(obj[9], start_index, len(obj[0]))

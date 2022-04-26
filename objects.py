@@ -3,7 +3,7 @@ import OpenGL.GL.shaders
 import numpy as np
 import math
 
-def create_triangle(program, x, y, scale, rotation, R, G, B, mode):
+def create_triangle(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
     
     # Funcao para calcular os vertices aqui
 
@@ -16,7 +16,7 @@ def create_triangle(program, x, y, scale, rotation, R, G, B, mode):
 
     return [vertices, x, y, scale, rotation, R, G, B, mode]
 
-def create_nose(program, x, y, scale, rotation, R, G, B, mode):
+def create_nose(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
     
     # Funcao para calcular os vertices aqui
     
@@ -37,7 +37,7 @@ def create_nose(program, x, y, scale, rotation, R, G, B, mode):
 
     return [vertices, x, y, scale, rotation, R, G, B, mode]
 
-def create_mouth(program, x, y, scale, rotation, R, G, B, mode):
+def create_mouth(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
     
     # Funcao para calcular os vertices aqui
 
@@ -61,7 +61,7 @@ def create_mouth(program, x, y, scale, rotation, R, G, B, mode):
 
     return [vertices, x, y, scale, rotation, R, G, B, mode]
 
-def create_head(program, x, y, scale, rotation, R, G, B, mode):
+def create_head(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
     
     # Funcao para calcular os vertices aqui
     
@@ -75,7 +75,7 @@ def create_head(program, x, y, scale, rotation, R, G, B, mode):
 
     return [vertices, x, y, scale, rotation, R, G, B, mode]
 
-def create_hair(program, x, y, scale, rotation, R, G, B, mode):
+def create_hair(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
     
     # Funcao para calcular os vertices aqui
     
@@ -103,7 +103,7 @@ def create_hair(program, x, y, scale, rotation, R, G, B, mode):
 
     return [vertices, x, y, scale, rotation, R, G, B, mode]
 
-def create_hair_outline(program, x, y, scale, rotation, R, G, B, mode):
+def create_hair_outline(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
     
     # Funcao para calcular os vertices aqui
     
@@ -126,5 +126,26 @@ def create_hair_outline(program, x, y, scale, rotation, R, G, B, mode):
         (0.084, -0.244),
         (0.170, -0.243),
     ]
+
+    return [vertices, x, y, scale, rotation, R, G, B, mode]
+
+def create_ellipse(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, radius=1.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP, eccentricity=1):
+    
+    num_vertices = 32 # define a "qualidade" do circulo
+    pi = 3.14
+    counter = 0
+    vertices = []
+    offset_x = x
+    offset_y = y
+
+    angle = 0.0
+    for counter in range(num_vertices):
+        angle += 2*pi/num_vertices 
+        x = math.cos(angle)*radius + offset_x
+        y = math.sin(angle)*radius*eccentricity + offset_y
+        # x = np.float64(round(x, 3))
+        # y = np.float64(round(y, 3))
+
+        vertices.append((x,y))
 
     return [vertices, x, y, scale, rotation, R, G, B, mode]

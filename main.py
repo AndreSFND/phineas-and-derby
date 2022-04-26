@@ -14,37 +14,37 @@ def create_objects(program):
     # program, x, y, scale_x, scale_y, rotation, R, G, B, render_mode
 
     # Phineas Shirt
-    fixed_objects.append( create_triangle(program, x=0.0, y=-0.59, R=0.98, G=0.93, B=0.83, mode=GL_TRIANGLE_STRIP) )
-    fixed_objects.append( create_ellipse(program, x=-0.031, y=-0.22, radius=0.062, eccentricity=0.75, R=0.96, G=0.49, B=0.21, mode=GL_TRIANGLE_FAN) )
+    objects.append( create_triangle(program, x=0.0, y=-0.59, R=0.98, G=0.93, B=0.83, mode=GL_TRIANGLE_STRIP) )
+    objects.append( create_ellipse(program, x=-0.031, y=-0.22, radius=0.062, eccentricity=0.75, R=0.96, G=0.49, B=0.21, mode=GL_TRIANGLE_FAN) )
 
     # Hair
-    fixed_objects.append( create_hair(program=program, x=-0.4, y=1, scale_x=1.6, scale_y=1.6, R=0.87, G=0.18, B=0.09, mode=GL_TRIANGLE_FAN ) )
+    objects.append( create_hair(program=program, x=-0.4, y=1, scale_x=1.6, scale_y=1.6, R=0.87, G=0.18, B=0.09, mode=GL_TRIANGLE_FAN ) )
     # Hair outline
     fixed_objects.append( create_hair_outline(program=program, x=-0.4, y=1, scale_x=1.6, scale_y=1.6, R=0.43, G=0.17, B=0.25, mode=GL_LINE_STRIP ) )
     # Head
-    fixed_objects.append( create_head(program, R=0.98, G=0.72, B=0.60, mode=GL_TRIANGLE_STRIP) )
+    objects.append( create_head(program, R=0.98, G=0.72, B=0.60, mode=GL_TRIANGLE_STRIP) )
     # Nose
-    fixed_objects.append( create_nose(program, x=-0.03, y=+0.05, scale_x=0.05, scale_y=0.05, R=0.81, G=0.49, B=0.39, mode=GL_TRIANGLE_STRIP) )
+    objects.append( create_nose(program, x=-0.03, y=+0.05, scale_x=0.05, scale_y=0.05, R=0.81, G=0.49, B=0.39, mode=GL_TRIANGLE_STRIP) )
     # Mouth
-    fixed_objects.append( create_mouth(program, x=+0.00, y=-0.05, scale_x=0.25, scale_y=0.25, R=0.39, G=0.01, B=0.02, mode=GL_TRIANGLE_FAN) )
+    objects.append( create_mouth(program, x=+0.00, y=-0.05, scale_x=0.25, scale_y=0.25, R=0.39, G=0.01, B=0.02, mode=GL_TRIANGLE_FAN) )
 
     # Ears
-    fixed_objects.append( create_ear(program, x=+0.3, y=+0.0, scale_x=1.05, scale_y=1.05, R=0.98, G=0.72, B=0.60, mode=GL_TRIANGLE_FAN) )
-    fixed_objects.append( create_ear(program, x=-0.3, y=+0.0, scale_x=1.05, scale_y=1.05, R=0.98, G=0.72, B=0.60, mode=GL_TRIANGLE_FAN) )
-    fixed_objects.append( create_ear_line(program, x=+0.32, y=+0.0, scale_x=-1.05, scale_y=1.05, R=0.81, G=0.49, B=0.39, mode=GL_LINE_STRIP) )
-    fixed_objects.append( create_ear_line(program, x=-0.32, y=+0.0, scale_x=1.05, scale_y=1.05, R=0.81, G=0.49, B=0.39, mode=GL_LINE_STRIP) )
+    objects.append( create_ear(program, x=+0.3, y=+0.0, scale_x=1.05, scale_y=1.05, R=0.98, G=0.72, B=0.60, mode=GL_TRIANGLE_FAN) )
+    objects.append( create_ear_line(program, x=+0.32, y=+0.0, scale_x=-1.05, scale_y=1.05, R=0.81, G=0.49, B=0.39, mode=GL_LINE_STRIP) )
+    objects.append( create_ear(program, x=-0.3, y=+0.0, scale_x=1.05, scale_y=1.05, R=0.98, G=0.72, B=0.60, mode=GL_TRIANGLE_FAN) )
+    objects.append( create_ear_line(program, x=-0.32, y=+0.0, scale_x=1.05, scale_y=1.05, R=0.81, G=0.49, B=0.39, mode=GL_LINE_STRIP) )
 
     # Eyes contour
-    fixed_objects.append( create_ellipse(program, x=-0.15, y=+0.085, rotation=-20.0, radius=0.1, eccentricity=1.4, R=0.0, G=0.0, B=0.0, mode=GL_TRIANGLE_FAN) )
-    fixed_objects.append( create_ellipse(program, x=+0.055, y=+0.08, rotation=20.0, radius=0.1, eccentricity=1.4, R=0.0, G=0.0, B=0.0, mode=GL_TRIANGLE_FAN) )
+    objects.append( create_ellipse(program, x=-0.15, y=+0.085, rotation=-20.0, radius=0.1, eccentricity=1.4, R=0.0, G=0.0, B=0.0, mode=GL_TRIANGLE_FAN) )
+    objects.append( create_ellipse(program, x=+0.055, y=+0.10, rotation=20.0, radius=0.1, eccentricity=1.4, R=0.0, G=0.0, B=0.0, mode=GL_TRIANGLE_FAN) )
     
     # Eyes balls
-    fixed_objects.append( create_ellipse(program, x=-0.15, y=+0.085, rotation=-20.0, radius=0.097, eccentricity=1.4, R=1.0, G=1.0, B=1.0, mode=GL_TRIANGLE_FAN) )
-    objects.append( create_ellipse(program, x=+0.055, y=+0.08, rotation=20.0, radius=0.097, eccentricity=1.4, R=1.0, G=1.0, B=1.0, mode=GL_TRIANGLE_FAN) )
+    objects.append( create_ellipse(program, x=-0.15, y=+0.085, rotation=-20.0, radius=0.097, eccentricity=1.4, R=1.0, G=1.0, B=1.0, mode=GL_TRIANGLE_FAN) )
+    objects.append( create_ellipse(program, x=+0.055, y=+0.10, rotation=20.0, radius=0.097, eccentricity=1.4, R=1.0, G=1.0, B=1.0, mode=GL_TRIANGLE_FAN) )
     
     # Eyes Iris
-    objects.append( create_ellipse(program, x=-0.09, y=+0.1, rotation=0.0, radius=0.05, eccentricity=1.3, R=0.094, G=0.109, B=0.388, mode=GL_TRIANGLE_FAN) )
-    objects.append( create_ellipse(program, x=+0.045, y=+0.1, rotation=0.0, radius=0.05, eccentricity=1.3, R=0.094, G=0.109, B=0.388, mode=GL_TRIANGLE_FAN) )
+    objects.append( create_ellipse(program, x=-0.11, y=+0.11, rotation=0.0, radius=0.05, eccentricity=1.3, R=0.094, G=0.109, B=0.388, mode=GL_TRIANGLE_FAN) )
+    objects.append( create_ellipse(program, x=+0.065, y=+0.11, rotation=0.0, radius=0.05, eccentricity=1.3, R=0.094, G=0.109, B=0.388, mode=GL_TRIANGLE_FAN) )
 
 def move_object(x_offset, y_offset):
     global objects
@@ -114,12 +114,19 @@ def main():
         glClearColor(0.34, 0.73, 0.89, 1.0)
         
         start_index = 0
+        index = 0
         for obj in fixed_objects:
-            draw_object(obj, program, loc_color, start_index)
+            draw_object(obj, False, program, loc_color, start_index)
             start_index += len( obj[0] )
+
         for obj in objects:
-            draw_object(obj, program, loc_color, start_index)
+            if( current_object == index ):
+                draw_object(obj, True, program, loc_color, start_index)
+            else:
+                draw_object(obj, False, program, loc_color, start_index)
+            
             start_index += len( obj[0] )
+            index += 1
 
         glfw.swap_buffers(window)
 

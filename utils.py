@@ -99,7 +99,7 @@ def multiplica_matriz(a,b):
     c = m_c.reshape(1,16)
     return c
 
-def draw_object(obj, program, loc_color, start_index):
+def draw_object(obj, current, program, loc_color, start_index):
 
     rad = math.radians(obj[5]) 
     c = math.cos(rad)
@@ -123,14 +123,19 @@ def draw_object(obj, program, loc_color, start_index):
                                     0.0, 0.0, 1.0, 0.0,
                                     0.0, 0.0, 0.0, 1.0,], np.float32)
     
-    mat_transformation = multiplica_matriz(mat_translation,mat_scale)
-    mat_transformation = multiplica_matriz(mat_rotation,mat_transformation)
+    mat_transformation = multiplica_matriz(mat_rotation,mat_scale)
+    mat_transformation = multiplica_matriz(mat_translation,mat_transformation)
 
     loc = glGetUniformLocation(program, "mat_transformation")
     glUniformMatrix4fv(loc, 1, GL_TRUE, mat_transformation)
     
+    R = obj[6]
+    
+    if current:
+        R = 1.0 - obj[6]
+
     # Modificando a cor do objeto
-    glUniform4f(loc_color, obj[6], obj[7], obj[8], 1.0)
+    glUniform4f(loc_color, R, obj[7], obj[8], 1.0)
 
     # Desenhando arestas
     glDrawArrays(obj[9], start_index, len(obj[0]))

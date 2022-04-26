@@ -29,12 +29,17 @@ def create_objects(program):
     objects.append( create_ear_line(program, side='B', x=+0.32, y=+0.0, scale=0.05, R=0.81, G=0.49, B=0.39, mode=GL_LINE_STRIP) )
     objects.append( create_ear_line(program, side='A', x=-0.32, y=+0.0, scale=0.05, R=0.81, G=0.49, B=0.39, mode=GL_LINE_STRIP) )
 
-    # objects.append( create_ellipse(program, x=-0.083, y=+0.078, scale=0.0, rotation=0.0, radius=0.07, eccentricity=2, R=0.0, G=0.0, B=0.0, mode=GL_TRIANGLE_FAN) )
-    # objects.append( create_ellipse(program, x=+0.017, y=+0.078, rotation=0.0, radius=0.07, eccentricity=2, R=0.0, G=0.0, B=0.0, mode=GL_TRIANGLE_FAN) )
-    # objects.append( create_ellipse(program, x=-0.079, y=+0.078, rotation=0.0, radius=0.06, eccentricity=2, R=1.0, G=1.0, B=1.0, mode=GL_TRIANGLE_FAN) )
-    # objects.append( create_ellipse(program, x=+0.020, y=+0.078, rotation=0.0, radius=0.06, eccentricity=2, R=1.0, G=1.0, B=1.0, mode=GL_TRIANGLE_FAN) )
-    # objects.append( create_ellipse(program, x=-0.076, y=+0.078, rotation=0.0, radius=0.05, eccentricity=1.3, R=0.094, G=0.109, B=0.388, mode=GL_TRIANGLE_FAN) )
-    # objects.append( create_ellipse(program, x=+0.023, y=+0.078, rotation=0.0, radius=0.05, eccentricity=1.3, R=0.094, G=0.109, B=0.388, mode=GL_TRIANGLE_FAN) )
+    # Eyes contour
+    objects.append( create_ellipse(program, x=-0.14, y=+0.089, rotation=-17.0, radius=0.1, eccentricity=1.4, R=0.0, G=0.0, B=0.0, mode=GL_TRIANGLE_FAN) )
+    objects.append( create_ellipse(program, x=+0.05, y=+0.1, rotation=20.0, radius=0.1, eccentricity=1.4, R=0.0, G=0.0, B=0.0, mode=GL_TRIANGLE_FAN) )
+    
+    # Eyes balls
+    objects.append( create_ellipse(program, x=-0.14, y=+0.089, rotation=-17.0, radius=0.097, eccentricity=1.4, R=1.0, G=1.0, B=1.0, mode=GL_TRIANGLE_FAN) )
+    objects.append( create_ellipse(program, x=+0.05, y=+0.1, rotation=20.0, radius=0.097, eccentricity=1.4, R=1.0, G=1.0, B=1.0, mode=GL_TRIANGLE_FAN) )
+    
+    # Eyes Iris
+    objects.append( create_ellipse(program, x=-0.1, y=+0.1, rotation=0.0, radius=0.05, eccentricity=1.3, R=0.094, G=0.109, B=0.388, mode=GL_TRIANGLE_FAN) )
+    objects.append( create_ellipse(program, x=+0.05, y=+0.1, rotation=0.0, radius=0.05, eccentricity=1.3, R=0.094, G=0.109, B=0.388, mode=GL_TRIANGLE_FAN) )
 
 def move_object(x_offset, y_offset):
     global objects

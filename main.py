@@ -4,7 +4,7 @@ import OpenGL.GL.shaders
 import numpy as np
 
 from utils import create_window, create_program, upload_data, draw_object
-from objects import create_ellipse, create_triangle, create_nose, create_mouth, create_head, create_hair, create_hair_outline
+from objects import create_ellipse, create_triangle, create_nose, create_mouth, create_head, create_hair, create_hair_outline, create_ear, create_ear_line
 
 objects = list()
 current_object = 0
@@ -22,6 +22,13 @@ def create_objects(program):
     objects.append( create_nose(program, x=-0.03, y=+0.05, scale=-0.95, R=0.81, G=0.49, B=0.39, mode=GL_TRIANGLE_STRIP) )
     # Mouth
     objects.append( create_mouth(program, x=+0.00, y=-0.05, scale=-0.75, R=0.39, G=0.01, B=0.02, mode=GL_TRIANGLE_FAN) )
+
+    # Ear
+    objects.append( create_ear(program, x=+0.3, y=+0.0, scale=0.05, R=0.98, G=0.72, B=0.60, mode=GL_TRIANGLE_FAN) )
+    objects.append( create_ear(program, x=-0.3, y=+0.0, scale=0.05, R=0.98, G=0.72, B=0.60, mode=GL_TRIANGLE_FAN) )
+    objects.append( create_ear_line(program, side='B', x=+0.32, y=+0.0, scale=0.05, R=0.81, G=0.49, B=0.39, mode=GL_LINE_STRIP) )
+    objects.append( create_ear_line(program, side='A', x=-0.32, y=+0.0, scale=0.05, R=0.81, G=0.49, B=0.39, mode=GL_LINE_STRIP) )
+
     # objects.append( create_ellipse(program, x=-0.083, y=+0.078, scale=0.0, rotation=0.0, radius=0.07, eccentricity=2, R=0.0, G=0.0, B=0.0, mode=GL_TRIANGLE_FAN) )
     # objects.append( create_ellipse(program, x=+0.017, y=+0.078, rotation=0.0, radius=0.07, eccentricity=2, R=0.0, G=0.0, B=0.0, mode=GL_TRIANGLE_FAN) )
     # objects.append( create_ellipse(program, x=-0.079, y=+0.078, rotation=0.0, radius=0.06, eccentricity=2, R=1.0, G=1.0, B=1.0, mode=GL_TRIANGLE_FAN) )

@@ -149,3 +149,49 @@ def create_ellipse(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, radius=1
         vertices.append((x,y))
 
     return [vertices, x, y, scale, rotation, R, G, B, mode]
+
+def create_ear(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
+    
+    num_vertices = 32 # define a "qualidade" do circulo
+    pi = 3.14
+    counter = 0
+    radius = 0.06
+    vertices = []
+
+    angle = 0.0
+    for counter in range(num_vertices):
+        angle += 2*pi/num_vertices 
+        vertice_x = math.cos(angle)*radius
+        vertice_y = math.sin(angle)*radius
+        
+        vertices.append((vertice_x,vertice_y))
+
+    return [vertices, x, y, scale, rotation, R, G, B, mode]
+
+def create_ear_line(program=None, side='A', x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
+    
+    # Funcao para calcular os vertices aqui
+    
+    # Preenchendo as coordenadas de cada vértice
+    vertices = [
+        (+0.033, -0.03),
+        (+0.01, -0.035),
+        (-0.01, -0.02),
+        (+0.00, +0.00),
+        (-0.011, +0.019),
+        (+0.01, +0.042),
+        (+0.032, +0.03),
+    ]
+
+    if side == 'B':
+        vertices = [
+            (-0.033, -0.03),
+            (-0.01, -0.035),
+            (+0.01, -0.02),
+            (-0.00, +0.00),
+            (+0.011, +0.019),
+            (-0.01, +0.042),
+            (-0.032, +0.03),
+        ]
+
+    return [vertices, x, y, scale, rotation, R, G, B, mode]

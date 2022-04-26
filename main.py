@@ -12,6 +12,10 @@ current_object = 0
 def create_objects(program):
     # program, x, y, scale_x, scale_y, rotation, R, G, B, render_mode
 
+    # Phineas Shirt
+    objects.append( create_triangle(program, x=0.0, y=-0.59, scale=0.0, rotation=0.0, R=0.98, G=0.93, B=0.83, mode=GL_TRIANGLE_STRIP) )
+    objects.append( create_ellipse(program, x=-0.031, y=-0.22, rotation=+0.0, radius=0.062, eccentricity=0.75, R=0.96, G=0.49, B=0.21, mode=GL_TRIANGLE_FAN) )
+
     # Hair
     objects.append( create_hair(program=program, x=-0.4, y=1, scale=0.6, R=0.87, G=0.18, B=0.09, mode=GL_TRIANGLE_FAN ) )
     # Hair outline

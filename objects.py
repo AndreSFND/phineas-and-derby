@@ -9,9 +9,9 @@ def create_triangle(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, 
 
     # Preenchendo as coordenadas de cada vértice
     vertices = [
-        (+0.0, +0.0),
-        (+0.1, +0.2),
-        (+0.2, +0.0),
+        (-0.1, +0.0),
+        (+0.1, +0.0),
+        (+0.0, +0.14),
     ]
 
     return [vertices, x, y, scale, rotation, R, G, B, mode]

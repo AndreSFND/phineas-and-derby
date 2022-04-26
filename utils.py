@@ -94,21 +94,21 @@ def upload_data(program, vertices):
 
 def draw_object(obj, program, loc_color, start_index):
 
-    rad = math.radians(obj[3]) 
+    rad = math.radians(obj[4]) 
     c = math.cos(rad)
     s = math.sin(rad)
 
     # Definindo a matriz de translacao
-    mat_translation = np.array([    c, -s, 0.0, obj[1],
-                                    s, c, 0.0, obj[2], 
-                                    0.0, 0.0, 1.0, 0.0, 
-                                    0.0, 0.0, 0.0, 1.0], np.float32)
+    mat_translation = np.array([    c+obj[3],   -s,         0.0, obj[1],
+                                    s,          c+obj[3],   0.0, obj[2], 
+                                    0.0,        0.0,        1.0, 0.0, 
+                                    0.0,        0.0,        0.0, 1.0], np.float32)
     
     loc = glGetUniformLocation(program, "mat_transformation")
     glUniformMatrix4fv(loc, 1, GL_TRUE, mat_translation)
     
     # Modificando a cor do objeto
-    glUniform4f(loc_color, obj[4], obj[5], obj[6], 1.0)
+    glUniform4f(loc_color, obj[5], obj[6], obj[7], 1.0)
 
     # Desenhando arestas
-    glDrawArrays(obj[7], start_index, len(obj[0]))
+    glDrawArrays(obj[8], start_index, len(obj[0]))

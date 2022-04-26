@@ -3,7 +3,7 @@ import OpenGL.GL.shaders
 import numpy as np
 import math
 
-def create_triangle(program, x, y, rotation, R, G, B, mode):
+def create_triangle(program, x, y, scale, rotation, R, G, B, mode):
     
     # Funcao para calcular os vertices aqui
 
@@ -14,9 +14,9 @@ def create_triangle(program, x, y, rotation, R, G, B, mode):
         (+0.2, +0.0),
     ]
 
-    return [vertices, x, y, rotation, R, G, B, mode]
+    return [vertices, x, y, scale, rotation, R, G, B, mode]
 
-def create_nose(program, x, y, rotation, R, G, B, mode):
+def create_nose(program, x, y, scale, rotation, R, G, B, mode):
     
     # Funcao para calcular os vertices aqui
     
@@ -35,9 +35,9 @@ def create_nose(program, x, y, rotation, R, G, B, mode):
         (+1.05, +0.0),
     ]
 
-    return [vertices, x, y, rotation, R, G, B, mode]
+    return [vertices, x, y, scale, rotation, R, G, B, mode]
 
-def create_mouth(program, x, y, rotation, R, G, B, mode):
+def create_mouth(program, x, y, scale, rotation, R, G, B, mode):
     
     # Funcao para calcular os vertices aqui
 
@@ -59,12 +59,11 @@ def create_mouth(program, x, y, rotation, R, G, B, mode):
         if counter > 14:
             vertices.append((x,y))
 
-    return [vertices, x, y, rotation, R, G, B, mode]
+    return [vertices, x, y, scale, rotation, R, G, B, mode]
 
-def create_head(program, x, y, rotation, R, G, B, mode):
+def create_head(program, x, y, scale, rotation, R, G, B, mode):
     
     # Funcao para calcular os vertices aqui
-    print(R, G, B)
     
     # Preenchendo as coordenadas de cada vértice
     vertices = [
@@ -74,4 +73,58 @@ def create_head(program, x, y, rotation, R, G, B, mode):
         (+0.0, -0.45),
     ]
 
-    return [vertices, x, y, rotation, R, G, B, mode]
+    return [vertices, x, y, scale, rotation, R, G, B, mode]
+
+def create_hair(program, x, y, scale, rotation, R, G, B, mode):
+    
+    # Funcao para calcular os vertices aqui
+    
+    # Preenchendo as coordenadas de cada vértice
+    vertices = [
+        (0.270, -0.200),
+        (0.225, -0.250),
+        (0.268, -0.279),
+        (0.341, -0.164),
+        (0.300, -0.182),
+        (0.309, -0.108),
+        (0.285, -0.042),
+        (0.263, -0.122),
+        (0.200, -0.066),
+        (0.127, -0.048),
+        (0.063, -0.048),
+        (0.127, -0.090),
+        (0.158, -0.130),
+        (0.066, -0.154),
+        (0.140, -0.188),
+        (0.084, -0.244),
+        (0.170, -0.243),
+        (0.225, -0.250),
+    ]
+
+    return [vertices, x, y, scale, rotation, R, G, B, mode]
+
+def create_hair_outline(program, x, y, scale, rotation, R, G, B, mode):
+    
+    # Funcao para calcular os vertices aqui
+    
+    # Preenchendo as coordenadas de cada vértice
+    vertices = [
+        (0.225, -0.250),
+        (0.268, -0.279),
+        (0.341, -0.164),
+        (0.300, -0.182),
+        (0.309, -0.108),
+        (0.285, -0.042),
+        (0.263, -0.122),
+        (0.200, -0.066),
+        (0.127, -0.048),
+        (0.063, -0.048),
+        (0.127, -0.090),
+        (0.158, -0.130),
+        (0.066, -0.154),
+        (0.140, -0.188),
+        (0.084, -0.244),
+        (0.170, -0.243),
+    ]
+
+    return [vertices, x, y, scale, rotation, R, G, B, mode]

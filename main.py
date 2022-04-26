@@ -4,17 +4,22 @@ import OpenGL.GL.shaders
 import numpy as np
 
 from utils import create_window, create_program, upload_data, draw_object
-from objects import create_triangle, create_nose, create_mouth, create_head
+from objects import create_triangle, create_nose, create_mouth, create_head, create_hair, create_hair_outline
 
 objects = list()
 current_object = 0
 
 def create_objects(program):
-    # program, x, y, rotation, R, G, B, render_mode
-    objects.append( create_triangle(program, +0.0, +0.0, 0.0, 0.0, 0.0, 1.0, GL_TRIANGLE_FAN) )
-    objects.append( create_nose(program, -0.5, +0.0, 0.0, 0.81, 0.49, 0.39, GL_TRIANGLE_STRIP) )
-    objects.append( create_mouth(program, -0.5, +0.0, 0.0, 0.39, 0.01, 0.02, GL_TRIANGLE_FAN) )
-    objects.append( create_head(program, +0.0, +0.0, 0.0, 0.98, 0.72, 0.60, GL_TRIANGLE_STRIP) )
+    # program, x, y, scale_x, scale_y, rotation, R, G, B, render_mode
+    # objects.append( create_triangle(program, +0.0, +0.0, 0.0, 0.0, 0.0, 1.0, GL_TRIANGLE_FAN) )
+    # objects.append( create_nose(program, -0.5, +0.0, 0.0, 0.81, 0.49, 0.39, GL_TRIANGLE_STRIP) )
+    # objects.append( create_mouth(program, -0.5, +0.0, 0.0, 0.39, 0.01, 0.02, GL_TRIANGLE_FAN) )
+    # Hair
+    objects.append( create_hair(program, +0.0, +0.0, 0.0, 0.0, 0.87, 0.18, 0.09, GL_TRIANGLE_FAN ) )
+    # Hair outline
+    objects.append( create_hair_outline(program, +0.0, +0.0, 0.0, 0.0, 0.43, 0.17, 0.25, GL_LINE_STRIP ) )
+    # Head
+    # objects.append( create_head(program, +0.0, +0.0, 0.0, 0.0, 0.98, 0.72, 0.60, GL_TRIANGLE_STRIP) )
 
 def move_object(x_offset, y_offset):
     global objects
@@ -22,10 +27,15 @@ def move_object(x_offset, y_offset):
     objects[current_object][1] += x_offset
     objects[current_object][2] += y_offset
 
+def scale_object(scale):
+    global objects
+
+    objects[current_object][3] += scale
+
 def rotate_object(offset):
     global objects
 
-    objects[current_object][3] += offset
+    objects[current_object][4] += offset
 
 def key_event(window,key,scancode,action,mods):
     global objects, current_object
@@ -38,6 +48,9 @@ def key_event(window,key,scancode,action,mods):
     # Rotates object
     if key == 65:  rotate_object(-2) #esquerda
     if key == 68:  rotate_object(+2) #direita
+    # Scales object
+    if key == 334:  scale_object(+0.01) #zoom in
+    if key == 333:  scale_object(-0.01) #zoom out
     # Switch between objects
     if key == 81 and action == 1: current_object = (current_object+1) % len(objects)
     if key == 69 and action == 1: current_object = (current_object-1) % len(objects)

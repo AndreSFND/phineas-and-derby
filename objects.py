@@ -50,14 +50,14 @@ def create_mouth(program=None, x=0.0, y=0.0, scale=0.0, rotation=0.0, R=0.1, G=0
     angle = 0.0
     for counter in range(num_vertices):
         angle += 2*pi/num_vertices 
-        x = math.cos(angle)*radius
-        y = math.sin(angle)*radius
+        vertice_x = math.cos(angle)*radius
+        vertice_y = math.sin(angle)*radius
         # x = np.float64(round(x, 3))
         # y = np.float64(round(y, 3))
         
         # Para pegar somente o semi circulo inferior, ignore os primeiros 15 pontos
         if counter > 14:
-            vertices.append((x,y))
+            vertices.append((vertice_x,vertice_y))
 
     return [vertices, x, y, scale, rotation, R, G, B, mode]
 

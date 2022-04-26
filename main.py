@@ -4,7 +4,7 @@ import OpenGL.GL.shaders
 import numpy as np
 
 from utils import create_window, create_program, upload_data, draw_object
-from objects import create_ellipse, create_triangle, create_nose, create_mouth, create_head, create_hair, create_hair_outline, create_ear, create_ear_line
+from objects import create_ellipse, create_triangle, create_nose, create_mouth, create_head, create_head_outline, create_hair, create_hair_outline, create_ear, create_ear_line
 
 fixed_objects = list()
 objects = list()
@@ -22,6 +22,7 @@ def create_objects(program):
     # Hair outline
     fixed_objects.append( create_hair_outline(program=program, x=-0.4, y=1, scale_x=1.6, scale_y=1.6, R=0.43, G=0.17, B=0.25, mode=GL_LINE_STRIP ) )
     # Head
+    fixed_objects.append( create_head_outline(program, R=0.43, G=0.17, B=0.25, mode=GL_LINE_LOOP) )
     objects.append( create_head(program, R=0.98, G=0.72, B=0.60, mode=GL_TRIANGLE_STRIP) )
     # Nose
     objects.append( create_nose(program, x=-0.03, y=+0.05, scale_x=0.05, scale_y=0.05, R=0.81, G=0.49, B=0.39, mode=GL_TRIANGLE_STRIP) )

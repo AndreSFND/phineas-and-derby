@@ -75,6 +75,20 @@ def create_head(program=None, x=0.0, y=0.0, scale_x=1.0, scale_y= 1.0, rotation=
 
     return [vertices, x, y, scale_x, scale_y, rotation, R, G, B, mode]
 
+def create_head_outline(program=None, x=0.0, y=0.0, scale_x=1.0, scale_y= 1.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
+    
+    # Funcao para calcular os vertices aqui
+    
+    # Preenchendo as coordenadas de cada vértice
+    vertices = [
+        (+0.0, +0.65),
+        (+0.3, +0.0),
+        (+0.0, -0.45),
+        (-0.3, +0.0),
+    ]
+
+    return [vertices, x, y, scale_x, scale_y, rotation, R, G, B, mode]
+
 def create_hair(program=None, x=0.0, y=0.0, scale_x=1.0, scale_y= 1.0, rotation=0.0, R=0.1, G=0.1, B=0.1, mode=GL_LINE_STRIP):
     
     # Funcao para calcular os vertices aqui
